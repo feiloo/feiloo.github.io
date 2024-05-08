@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white_roboto.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h2> A primer to applied Bioinformatics </h2>
+				</section>
+
+				<section data-visibility=hidden>
+                    <h3> Index </h3>
+                    <ol>
+                        <li> Why bioinformatics </li>
+                        <li> what is bioinformatics </li>
+                        <li> how to run an analysis </li>
+                        <li> cloud/proprietary/oss </li>
+                        <li> workflow systems clc,wdl,nextflow </li>
+                        <li> sequence alignment and bam files</li>
+                        <li> variant calling and vcf files </li>
+                        <li> variant annotation vcf/excel </li>
+                        <li> future development and feedback sources</li>
+                    </ol>
+				</section>
+
+				<section>
+                <h3> why bioinformatics </h3>
+                <ul>
+                    <li> Software is needed in diagnosis, treatment, research </li>
+                    <li> analyse complex biological processes </li>
+                    <li> collect and manage biological knowledge </li>
+                    <li> specific and big datasets, files, tasks </li>
+                </ul>
+				</section>
+
+				<section>
+                <h3> what is bioinformatics </h3>
+                <ul>
+                    <li> in praxis: run and develop genetic analysis software </li>
+                    <li> processing of DNA and protein sequences </li>
+                    <li> specific databases and search engines </li>
+                    <li> machine learning, statistics </li>
+                </ul>
+                </section>
+
+				<section>
+                <h3> run an analysis in the browser </h3>
+                <img class="stretch" src="launch_rnaseq_nextflow_schema.png"></img>
+                <div>
+                <a href="https://training.nextflow.io/basic_training/img/launch_rnaseq_nextflow_schema.png">seqera cloud</a>
+                </div>
+                </section>
+
+				<section>
+                <h3> run an analysis with an desktop app </h3>
+                    <img class="stretch" src="launch_multiinput_workflow_gx.png"></img>
+                    <div>
+                    <a href="https://resources.qiagenbioinformatics.com/manuals/clcgenomicsworkbench/900/launch_multiinput_workflow_gx.png">desktop application: qiagen clc genomics workbench</a>
+                    </div>
+                </section>
+
+
+				<section>
+                <h3> run an analysis with the commandline</h3>
+                <div>
+                    <div>
+                    <pre><code data-trim data-noescape>
+nextflow run nf-core/sarek \
+   -profile ukb_profile \
+   --input samplesheet.csv \
+   --outdir output_folder
+                    </code></pre>
+                </div>
+                    <a href="https://nf-co.re/sarek/3.4.0">genetic analysis pipeline: sarek</a> <br>
+                    <a href="https://www.nextflow.io/">software for running pipelines: nextflow</a>
+                </section>
+
+
+                <section>
+                    <h3> analysepipelines, example: sarek </h3>
+                    <img class="stretch" src="sarek_workflow.png"></img>
+                </section>
+
+                <section>
+                    <h3> sequence alignment and bam files</h3>
+                    <ul>
+                        <li> DNA Sequencer Device outputs reads (digital dna fragments, .fastq file) </li>
+                        <li> align the reads to reference DNA (refgenome) </li>
+                        <li> output is a "binary alignment map" (.bam file) </li>
+                    </ul>
+                    <img class="stretch" src="Illumina-Read-Alignment-1897053811.png"></img>
+                </section>
+
+                <section>
+                    <h3> variant calling and vcf files </h3>
+                    <ul>
+                        <li> detect genetic variations (mutations)</li>
+                        <li> variant caller produces "variant call format" (.vcf file) </li>
+                    </ul>
+                    <img class="stretch" src="Binary_BCF_versus_VCF_format_edit.png"></img>
+                </section>
+
+                <section>
+                    <h3> variant annotation </h3>
+                    <ul>
+                        <li> semi-manually classify harmful/harmless variants </li>
+                        <li> uses tools, expert knowledge, vcf files, excel, literature research </li>
+                        <li> deliver diagnosis and possibly recommend treatment options </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3> future development and feedback </h3>
+                    <ul>
+                        <li> improve patient treatment </li>
+                        <li> increase bioinformatics expertise </li>
+                        <li> reduce software infrastructure risks and costs </li>
+                        <li> provide and extend statistical data for cancer research </li>
+                    </ul>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+        <!-- <script src="plugin/markdown/markdown.js"></script> -->
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
